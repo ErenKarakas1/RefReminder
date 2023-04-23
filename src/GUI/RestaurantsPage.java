@@ -91,7 +91,7 @@ public class RestaurantsPage extends javax.swing.JFrame {
             jTextPane1.setText( "Description cannot found!" );
         }
 
-        jLabelName1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabelName1.setFont(new java.awt.Font("Lucida Grande", Font.BOLD, 14)); // NOI18N
         jLabelName1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         jLabelPrice.setText( object3.getString("ranking" ) );
@@ -136,10 +136,16 @@ public class RestaurantsPage extends javax.swing.JFrame {
         }
 
         jList1.setBackground(new java.awt.Color(240, 248, 255));
-        jList1.setModel(new AbstractListModel<String>() {
+        jList1.setModel(new AbstractListModel<>() {
             String[] strings = {};
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+
+            public int getSize() {
+                return strings.length;
+            }
+
+            public String getElementAt(int i) {
+                return strings[i];
+            }
         });
 
         jScrollPane2.setViewportView(jList1);
@@ -150,86 +156,62 @@ public class RestaurantsPage extends javax.swing.JFrame {
         }
         jList1.setModel( list );
 
-        jLabelDes.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
+        jLabelDes.setFont(new java.awt.Font("Lucida Grande", Font.PLAIN, 12)); // NOI18N
         jLabelDes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelDes.setText("Description");
 
         jButton12.setBackground(new java.awt.Color(102, 255, 102));
-        jButton12.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton12.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton12.setText("Shopping");
         jButton12.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
-            }
-        });
+        jButton12.addActionListener(this::jButton12ActionPerformed);
 
         jButton16.setBackground(new java.awt.Color(0, 255, 204));
-        jButton16.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton16.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton16.setText("Settings");
         jButton16.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton16ActionPerformed(evt);
-            }
-        });
+        jButton16.addActionListener(this::jButton16ActionPerformed);
 
         jButton1.setBackground(new java.awt.Color(255, 102, 255));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton1.setText("Main Menu");
         jButton1.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jButton1.addActionListener(this::jButton1ActionPerformed);
 
         jButton8.setBackground(new java.awt.Color(255, 51, 51));
-        jButton8.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton8.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton8.setText("Stock Control");
         jButton8.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
+        jButton8.addActionListener(this::jButton8ActionPerformed);
 
         jButton10.setBackground(new java.awt.Color(0, 153, 0));
-        jButton10.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton10.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton10.setText("Reciper");
         jButton10.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    jButton10ActionPerformed(evt);
-                } catch (IOException | InterruptedException e) {
-                    e.printStackTrace();
-                }
+        jButton10.addActionListener(evt -> {
+            try {
+                jButton10ActionPerformed(evt);
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
             }
         });
 
         jButton9.setBackground(new java.awt.Color(255, 51, 0));
-        jButton9.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton9.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton9.setText("Restaurants");
         jButton9.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
+        jButton9.addActionListener(this::jButton9ActionPerformed);
 
         jButton11.setBackground(new java.awt.Color(51, 153, 255));
-        jButton11.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton11.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton11.setText("Bilkent Menu");
         jButton11.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    jButton11ActionPerformed(evt);
-                }
-                catch (IOException e) {
-                    e.printStackTrace();
-                }
+        jButton11.addActionListener(evt -> {
+            try {
+                jButton11ActionPerformed(evt);
+            }
+            catch (IOException e) {
+                e.printStackTrace();
             }
         });
 
@@ -439,7 +421,7 @@ public class RestaurantsPage extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -452,29 +434,18 @@ public class RestaurantsPage extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RestaurantsPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RestaurantsPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RestaurantsPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | UnsupportedLookAndFeelException | IllegalAccessException |
+                 InstantiationException ex) {
             java.util.logging.Logger.getLogger(RestaurantsPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new RestaurantsPage().setVisible(true);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (URISyntaxException e) {
-                    e.printStackTrace();
-                }
+        java.awt.EventQueue.invokeLater(() -> {
+            try {
+                new RestaurantsPage().setVisible(true);
+            } catch (IOException | URISyntaxException | InterruptedException e) {
+                e.printStackTrace();
             }
         });
     }

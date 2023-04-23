@@ -7,23 +7,18 @@ package GUI;/*
 import APIs.src.java.net.http.SpoonacularAPI;
 import Logic.Food;
 import Logic.FoodSelect;
-
-import javax.imageio.ImageIO;
-import javax.swing.*;
-
 import Logic.Recipe;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.stream.Collectors;
 
 /**
  *
@@ -97,94 +92,59 @@ public class RecipePage extends javax.swing.JFrame {
         // Stores foods in an array, displays in a ComboBox
         String[] foods = fs.getFood().stream().map( Food::getFoodName ).toArray( String[]::new );
         jComboBox1.setEditable( true );
-        jComboBox1.setModel( new DefaultComboBoxModel<String>( foods ) );
-        jComboBox1.addActionListener( new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                jComboBox1ActionPerformed( evt );
-            }
-        });
+        jComboBox1.setModel(new DefaultComboBoxModel<>(foods) );
+        jComboBox1.addActionListener(this::jComboBox1ActionPerformed);
 
         jButton1.setBackground( new Color(255, 102, 255 ) );
-        jButton1.setFont( new Font("Times New Roman", 0, 12) );
+        jButton1.setFont( new Font("Times New Roman", Font.PLAIN, 12) );
         jButton1.setText( "Main Menu" );
         jButton1.setPreferredSize( new Dimension(120, 35 ) );
-        jButton1.addActionListener( new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jButton1.addActionListener(this::jButton1ActionPerformed);
 
         jButton8.setBackground(new Color(255, 51, 51));
-        jButton8.setFont(new Font("Times New Roman", 0, 12)); // NOI18N
+        jButton8.setFont(new Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton8.setText("Stock Control");
         jButton8.setPreferredSize(new Dimension(120, 35));
-        jButton8.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-
-            }
-        });
+        jButton8.addActionListener(this::jButton8ActionPerformed);
 
         jButton10.setBackground(new Color(0, 153, 0));
-        jButton10.setFont(new Font("Times New Roman", 0, 12)); // NOI18N
+        jButton10.setFont(new Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton10.setText("Reciper");
         jButton10.setPreferredSize(new Dimension(120, 35));
-        jButton10.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                jButton10ActionPerformed(evt);
-            }
-        });
+        jButton10.addActionListener(this::jButton10ActionPerformed);
 
         jButton9.setBackground(new Color(255, 51, 0));
-        jButton9.setFont(new Font("Times New Roman", 0, 12)); // NOI18N
+        jButton9.setFont(new Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton9.setText("Restaurants");
         jButton9.setPreferredSize(new Dimension(120, 35));
-        jButton9.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-
-            }
-        });
+        jButton9.addActionListener(this::jButton9ActionPerformed);
 
         jButton11.setBackground(new Color(51, 153, 255));
-        jButton11.setFont(new Font("Times New Roman", 0, 12)); // NOI18N
+        jButton11.setFont(new Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton11.setText("Bilkent Menu");
         jButton11.setPreferredSize(new Dimension(120, 35));
-        jButton11.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                jButton11ActionPerformed(evt);
-            }
-        });
+        jButton11.addActionListener(this::jButton11ActionPerformed);
 
         jButton12.setBackground(new Color(102, 255, 102));
-        jButton12.setFont(new Font("Times New Roman", 0, 12)); // NOI18N
+        jButton12.setFont(new Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton12.setText("Shopping");
         jButton12.setPreferredSize(new Dimension(120, 35));
-        jButton12.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                jButton12ActionPerformed(evt);
-            }
-        });
+        jButton12.addActionListener(this::jButton12ActionPerformed);
 
         jButton13.setBackground(new Color(0, 255, 204));
-        jButton13.setFont(new Font("Times New Roman", 0, 12)); // NOI18N
+        jButton13.setFont(new Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton13.setText("Settings");
         jButton13.setPreferredSize(new Dimension(120, 35));
-        jButton13.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                jButton13ActionPerformed(evt);
+        jButton13.addActionListener(this::jButton13ActionPerformed);
 
-            }
-        });
-
-        jLabel1.setFont(new Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new Font("Tahoma", Font.BOLD, 14)); // NOI18N
         jLabel1.setText("Select a Food From Your Storage");
 
         jPanel2.setBackground(new Color(255, 255, 255));
         jPanel2.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)));
         jLabelName.setHorizontalAlignment(SwingConstants.CENTER);
         jLabelName.setText(recipe.getRecipeName());
-        jLabelName.setFont(new Font("Lucida Grande", 1, 13));
+        jLabelName.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 
         GroupLayout jPanel2Layout = new GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -209,56 +169,44 @@ public class RecipePage extends javax.swing.JFrame {
         );
 
         jButton2.setText("New Random");
-        jButton2.addActionListener(new ActionListener() {
-            public void actionPerformed( ActionEvent evt ) {
-                try {
-                    jButton2ActionPerformed( evt );
-                } catch (IOException | InterruptedException e) {
-                    e.printStackTrace();
-                }
+        jButton2.addActionListener(evt -> {
+            try {
+                jButton2ActionPerformed( evt );
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
             }
         });
 
-        jLabel2.setFont( new Font("Tahoma", 1, 12 ) );
+        jLabel2.setFont( new Font("Tahoma", Font.BOLD, 12 ) );
         jLabel2.setText( "Get Random Recipe!" );
 
         jButtonAdd.setText("Add");
-        jButtonAdd.addActionListener( new ActionListener() {
-            public void actionPerformed( ActionEvent evt ) {
-                jButtonAddActionPerformed(evt);
-            }
-        });
+        jButtonAdd.addActionListener(this::jButtonAddActionPerformed);
 
         jButtonSearch.setText("Search");
-        jButtonSearch.addActionListener(new ActionListener() {
-            public void actionPerformed( ActionEvent evt ) {
-                try {
-                    jButtonSearchActionPerformed( evt );
-                } catch (IOException | InterruptedException e) {
-                    e.printStackTrace();
-                }
+        jButtonSearch.addActionListener(evt -> {
+            try {
+                jButtonSearchActionPerformed( evt );
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
             }
         });
 
         jButtonNext.setText("Next");
-        jButtonNext.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                try {
-                    jButtonNextActionPerformed(evt);
-                } catch (IOException | InterruptedException e) {
-                    e.printStackTrace();
-                }
+        jButtonNext.addActionListener(evt -> {
+            try {
+                jButtonNextActionPerformed(evt);
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
             }
         });
 
         jButtonDetails.setText("Details");
-        jButtonDetails.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                try {
-                    jButtonDetailsActionPerformed(evt);
-                } catch (IOException | InterruptedException e) {
-                    e.printStackTrace();
-                }
+        jButtonDetails.addActionListener(evt -> {
+            try {
+                jButtonDetailsActionPerformed(evt);
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
             }
         });
         
@@ -386,7 +334,7 @@ public class RecipePage extends javax.swing.JFrame {
      * @param evt Action event
      */
     private void jButtonAddActionPerformed( ActionEvent evt ) {
-        foodList2 = new ArrayList<String>();
+        foodList2 = new ArrayList<>();
 
         String foodName = (String) jComboBox1.getSelectedItem();
 
@@ -574,7 +522,7 @@ public class RecipePage extends javax.swing.JFrame {
      *
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -593,13 +541,11 @@ public class RecipePage extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new RecipePage().setVisible(true);
-                } catch (IOException | InterruptedException e) {
-                    e.printStackTrace();
-                }
+        java.awt.EventQueue.invokeLater(() -> {
+            try {
+                new RecipePage().setVisible(true);
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
             }
         });
     }

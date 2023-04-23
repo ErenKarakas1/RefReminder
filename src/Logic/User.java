@@ -82,7 +82,7 @@ public class User {
             }
         }
 
-        catch(SQLException e ) { e.printStackTrace();} catch (ClassNotFoundException e) { e.printStackTrace(); }
+        catch(SQLException | ClassNotFoundException e ) { e.printStackTrace();}
     }
 
     // Getters and setters
@@ -120,7 +120,7 @@ public class User {
      */
     public static String textReader() throws FileNotFoundException
     {
-        File file = new File("filename.txt");
+        File file = new File("lib/logs/filename.txt");
         Scanner scan = new Scanner( file );
         String name = scan.next();
         scan.close();

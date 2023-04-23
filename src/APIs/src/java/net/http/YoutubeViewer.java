@@ -45,27 +45,20 @@ public class YoutubeViewer extends JPanel {
      */
     public static void main( String[] args ) {
         NativeInterface.open();
-        SwingUtilities.invokeLater( new Runnable() {
-            public void run() {
-                JFrame frame = new JFrame( "YouTube Viewer" );
-                JPanel panel = new JPanel();
-                panel = getBrowserPanel(  "https://www.youtube.com/embed/Cr0EWwaTk?fs=1%22" );
+        SwingUtilities.invokeLater(() -> {
+            JFrame frame = new JFrame( "YouTube Viewer" );
+            JPanel panel = new JPanel();
+            panel = getBrowserPanel(  "https://www.youtube.com/embed/Cr0EWwaTk?fs=1%22" );
 
-                frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-                frame.setSize( panel.getSize() );
-                frame.add( panel, BorderLayout.CENTER );
-                frame.setVisible( true );
-            }
+            frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            frame.setSize( panel.getSize() );
+            frame.add( panel, BorderLayout.CENTER );
+            frame.setVisible( true );
         });
         NativeInterface.runEventPump();
 
         // Don't forget to properly close native components
-        Runtime.getRuntime().addShutdownHook( new Thread( new Runnable() {
-            @Override
-            public void run() {
-                NativeInterface.close();
-            }
-        }));
+        Runtime.getRuntime().addShutdownHook( new Thread(NativeInterface::close));
     }
 
     /**

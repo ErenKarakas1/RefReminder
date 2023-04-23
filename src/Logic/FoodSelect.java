@@ -66,14 +66,12 @@ public class FoodSelect {
         try {
 
                 Food food;
-                ArrayList<Food> list = new ArrayList<Food>();
+                ArrayList<Food> list = new ArrayList<>();
                 java.sql.Connection connect = DriverManager.getConnection(
                         "jdbc:mysql://34.141.44.144:3306/" + username, "root", "root");
 
                 PreparedStatement statement = ((java.sql.Connection) connect).prepareStatement("SELECT * FROM food WHERE main = '" + name + "'");
 
-                //Statement statement = ((java.sql.Connection) connect).createStatement();
-                //String sql1 = "SELECT * FROM food WHERE main = '" + name + "'";
                 ResultSet resultset = statement.executeQuery();
 
                 while (resultset.next()) {
@@ -103,7 +101,7 @@ public class FoodSelect {
      */
     public static String textReader() throws FileNotFoundException
     {
-        File file = new File("filename.txt");
+        File file = new File("lib/logs/filename.txt");
         Scanner scan = new Scanner( file );
         String name = scan.next();
         scan.close();

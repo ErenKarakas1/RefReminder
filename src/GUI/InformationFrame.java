@@ -73,7 +73,7 @@ public class InformationFrame extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(240, 248, 255));
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14));
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", Font.BOLD, 14));
         jLabel1.setText("Health Score");
 
         // Clear the text from HTML formatting
@@ -91,14 +91,20 @@ public class InformationFrame extends javax.swing.JFrame {
         jProgressBar1.setForeground( Color.black );
         double percentage = ( Integer.parseInt( healthBar ) / ( double ) 100 ) * 100;
         int percentageNum = ( int ) percentage;
-        String percentageString = Double.toString( percentageNum );;
+        String percentageString = Double.toString( percentageNum );
         jProgressBar1.setString( "% "+ percentageString);
 
-        jList1.setFont( new java.awt.Font( "Lucida Grande", 0, 14 ) );
-        jList1.setModel( new javax.swing.AbstractListModel<String>() {
+        jList1.setFont( new java.awt.Font( "Lucida Grande", Font.PLAIN, 14 ) );
+        jList1.setModel(new javax.swing.AbstractListModel<>() {
             ArrayList<String> strings = new ArrayList<>();
-            public int getSize() { return strings.size(); }
-            public String getElementAt( int i ) { return strings.get( i ); }
+
+            public int getSize() {
+                return strings.size();
+            }
+
+            public String getElementAt(int i) {
+                return strings.get(i);
+            }
         });
 
         // Checks if there are ingredients, adds them
@@ -114,11 +120,11 @@ public class InformationFrame extends javax.swing.JFrame {
         jList1.setModel(liss);
         jScrollPane2.setViewportView(jList1);
 
-        jLabelName.setFont(new java.awt.Font("Tahoma", 1, 14 ) );
+        jLabelName.setFont(new java.awt.Font("Tahoma", Font.BOLD, 14 ) );
         jLabelName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelName.setText( recipe.getRecipeName() );
 
-        jLabelNameIngredients.setFont(new java.awt.Font( "Tahoma", 1, 12 ) );
+        jLabelNameIngredients.setFont(new java.awt.Font( "Tahoma", Font.BOLD, 12 ) );
         jLabelNameIngredients.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelNameIngredients.setText("Ingredients");
 
@@ -186,7 +192,7 @@ public class InformationFrame extends javax.swing.JFrame {
      *
      * @param args Command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -205,14 +211,12 @@ public class InformationFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater( new Runnable() {
-            public void run() {
-                try {
-                    new InformationFrame().setVisible( true );
-                }
-                catch ( IOException | InterruptedException e ) {
-                    e.printStackTrace();
-                }
+        java.awt.EventQueue.invokeLater(() -> {
+            try {
+                new InformationFrame().setVisible( true );
+            }
+            catch ( IOException | InterruptedException e ) {
+                e.printStackTrace();
             }
         });
     }

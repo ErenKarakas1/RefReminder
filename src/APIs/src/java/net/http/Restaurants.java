@@ -11,10 +11,7 @@ package APIs.src.java.net.http;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -69,10 +66,9 @@ public class Restaurants {
 		
 		String str = response.body();
 		int index = str.indexOf( "location_id" );
-		String locId = str.substring( index + 14, str.indexOf( "," , index) - 1 );
 
 		//object4.getString("name" )
-		return locId;
+		return str.substring( index + 14, str.indexOf( "," , index) - 1 );
 	}
 
 	/**
@@ -98,7 +94,6 @@ public class Restaurants {
 		// Gets data from JSON file
 		JSONObject object = new JSONObject( response.body() );
 		JSONObject object2 = object.getJSONObject( "results" );
-		JSONArray array = object2.getJSONArray( "data" );
 
 		/*
 		To use in debugging
@@ -133,7 +128,7 @@ public class Restaurants {
 			}
 		}
 		*/
-		return array;
+		return object2.getJSONArray( "data" );
 	}
 
 	/**

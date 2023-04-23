@@ -6,6 +6,7 @@ import Logic.Food;
 import Logic.FoodSelect;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
+import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.sql.DriverManager;
@@ -40,8 +41,8 @@ public class Remove extends javax.swing.JFrame {
     public Remove() {
         sd = new FoodSelect();
         liss = new DefaultListModel();
-        foodList1 = new ArrayList<Food>();
-        foodList2 = new ArrayList<String>();
+        foodList1 = new ArrayList<>();
+        foodList2 = new ArrayList<>();
 
         strArray = new String[sd.getFood().size()];
 
@@ -92,41 +93,25 @@ public class Remove extends javax.swing.JFrame {
 
         jComboBox1.setEditable(true);
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(strArray));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
+        jComboBox1.addActionListener(this::jComboBox1ActionPerformed);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", Font.BOLD, 12)); // NOI18N
         jLabel1.setText("Remove Food From Storage:");
 
         jButton1.setText("Add");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jButton1.addActionListener(this::jButton1ActionPerformed);
 
         jButton2.setText("Remove");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        jButton2.addActionListener(this::jButton2ActionPerformed);
 
 
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", Font.BOLD, 12)); // NOI18N
         jLabel2.setText("Selected Food/percentageString");
 
         jButton3.setText("Back");
         jButton3.setActionCommand("Back");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
+        jButton3.addActionListener(this::jButton3ActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -245,7 +230,7 @@ public class Remove extends javax.swing.JFrame {
 
         JFrame frame = new JFrame();
 
-        int messageAnswer = JOptionPane.showConfirmDialog(frame, " Do you want to remove more?", "Quit", JOptionPane.INFORMATION_MESSAGE);
+        int messageAnswer = JOptionPane.showConfirmDialog(frame, " Do you want to remove more?", "Quit", JOptionPane.YES_NO_CANCEL_OPTION);
 
         if (messageAnswer == JOptionPane.YES_OPTION) {
 
@@ -289,7 +274,7 @@ public class Remove extends javax.swing.JFrame {
      */
     public static String textReader() throws FileNotFoundException
     {
-        File file = new File( "filename.txt" );
+        File file = new File("lib/logs/filename.txt");
         Scanner scan = new Scanner( file );
         String name = scan.next();
         scan.close();
@@ -298,7 +283,7 @@ public class Remove extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -311,23 +296,14 @@ public class Remove extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Remove.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Remove.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Remove.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | UnsupportedLookAndFeelException | IllegalAccessException |
+                 InstantiationException ex) {
             java.util.logging.Logger.getLogger(Remove.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Remove().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new Remove().setVisible(true));
     }
 
 

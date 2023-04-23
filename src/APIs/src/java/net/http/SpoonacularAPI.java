@@ -33,7 +33,7 @@ public class SpoonacularAPI {
     private String apiKey5 = "faacc421edmsh15a90bfe13716c2p1c26f3jsnb71ff1a1e797";
 
     public SpoonacularAPI(){
-        apiKey = apiKey5;;
+        apiKey = apiKey5;
     }
 
     /**
@@ -115,7 +115,7 @@ public class SpoonacularAPI {
             information.add( "There were no instructions for the selected recipe.");
         }
 
-        information.add( "" + object.getInt( "spoonacularScore" ) );
+        information.add( String.valueOf( object.getInt("spoonacularScore" ) ) );
         JSONArray array = object.getJSONArray( "extendedIngredients" );
 
         for ( int i = 0; i < array.length(); i++ ) {
@@ -217,7 +217,7 @@ public class SpoonacularAPI {
             //System.out.println(  item.getInt("id") + " : " + item.getString("name" ) );
             foodList[i] = item.getString("name" );
             // System.out.println(  item.getString("name" ) + "Will be added to :" + ( i + array.length() - 1 ) );
-            foodList[ i + array.length() ] = item.getInt("id") + "";
+            foodList[ i + array.length() ] = String.valueOf( item.getInt("id") );
         }
 
         return foodList;
@@ -232,7 +232,7 @@ public class SpoonacularAPI {
      * @throws InterruptedException
      */
     public Food getFoodInformation( int foodID ) throws IOException, InterruptedException {
-        Food food = null;
+        Food food;
 
         String url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/ingredients/" + foodID +
                 "/information?unit=gram&amount=100";

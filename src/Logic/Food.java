@@ -1,7 +1,5 @@
 package Logic;
 
-import java.math.BigDecimal;
-
 /**
 * Food class for foods' detailed information 
 * @author H.Emre Tas, Eren

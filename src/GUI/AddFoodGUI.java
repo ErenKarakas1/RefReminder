@@ -12,6 +12,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 import javax.swing.*;
@@ -54,8 +55,8 @@ public class AddFoodGUI extends javax.swing.JFrame {
 
         // Properties
         foodList = new String[8];
-        labels = new ArrayList<JLabel>();
-        foods = new ArrayList<Food>();
+        labels = new ArrayList<>();
+        foods = new ArrayList<>();
 
         // GUI properties
         jPanel1 = new javax.swing.JPanel();
@@ -96,22 +97,14 @@ public class AddFoodGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabelRemove.setFont( new java.awt.Font("Tahoma", 1, 12 ) );
+        jLabelRemove.setFont( new java.awt.Font("Tahoma", Font.BOLD, 12 ) );
         jLabelRemove.setText( "Search and Select Food" );
 
         jButtonAdd.setLabel( "Add List" );
-        jButtonAdd.addActionListener( new java.awt.event.ActionListener() {
-            public void actionPerformed( java.awt.event.ActionEvent evt ) {
-                jButtonAddActionPerformed( evt );
-            }
-        });
+        jButtonAdd.addActionListener(this::jButtonAddActionPerformed);
 
         jButtonAddAll.setText( "Add All" );
-        jButtonAddAll.addActionListener( new java.awt.event.ActionListener() {
-            public void actionPerformed( java.awt.event.ActionEvent evt) {
-                jButtonAddAllActionPerformed( evt );
-            }
-        });
+        jButtonAddAll.addActionListener(this::jButtonAddAllActionPerformed);
 
         jTable1.setEnabled( false );
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -132,16 +125,12 @@ public class AddFoodGUI extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView( jTable1 );
 
-        jLabelName.setFont( new java.awt.Font("Tahoma", 1, 12 ) );
+        jLabelName.setFont( new java.awt.Font("Tahoma", Font.BOLD, 12 ) );
         jLabelName.setText( "Selected Food(percentageString)" );
 
 
         jButtonBack.setText( "Back" );
-        jButtonBack.addActionListener( new java.awt.event.ActionListener() {
-            public void actionPerformed( java.awt.event.ActionEvent evt ) {
-                jButtonBackActionPerformed( evt );
-            }
-        });
+        jButtonBack.addActionListener(this::jButtonBackActionPerformed);
 
         jTextField1.addKeyListener( new textFieldListener() );
 
@@ -172,7 +161,7 @@ public class AddFoodGUI extends javax.swing.JFrame {
                                 .addContainerGap())
         );
 
-        jLabelRemove1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelRemove1.setFont(new java.awt.Font("Tahoma", Font.BOLD, 12)); // NOI18N
         jLabelRemove1.setText("Add Amount(g)");
 
         // Layout
@@ -270,7 +259,7 @@ public class AddFoodGUI extends javax.swing.JFrame {
         public void keyReleased(java.awt.event.KeyEvent evt) {
             jPanel2.setBackground(Color.lightGray );
             updateLabels();
-            String text = "";
+            String text;
 
             text = ( (JTextField) evt.getSource() ).getText();
 
@@ -278,9 +267,7 @@ public class AddFoodGUI extends javax.swing.JFrame {
                 try {
                     foodList = foodApi.getFoodId( text );
 
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
+                } catch (IOException | InterruptedException e) {
                     e.printStackTrace();
                 }
 
@@ -305,7 +292,7 @@ public class AddFoodGUI extends javax.swing.JFrame {
      * @param evt Action event
      */
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {
-        String amountStr = "";
+        String amountStr;
         amountStr = findJustDigit( jTextFieldAmount.getText() );
 
         if( ! amountStr.equals( "" ) )
@@ -338,46 +325,38 @@ public class AddFoodGUI extends javax.swing.JFrame {
      * @param evt ActionEvent
      */
     private void jButtonAddAllActionPerformed(java.awt.event.ActionEvent evt) {
-        /**
-         *
-         */
         for ( Food food : foods ){
             //System.out.println( "ID: " + food.getId() + " Name: " + food.toString() + " Main: " + food.getMain() + " Calorie: " + food.getCaloriePerPortion() );
             if( food.getMain().contains( ";" ) ){
                 String[] mains = food.getMain().split(";");
-                for ( int index = 0 ; index < mains.length; index++){
+                for (String main : mains) {
 
-                    if ( mains[index].equals("Meat") || mains[index].equals( "Seafood")   || mains[index].equals( "Baking" ) ){
-                        food.setMain( "Main Dishes" );
-                        food.setExpiryDate( 180 );
+                    if (main.equals("Meat") || main.equals("Seafood") || main.equals("Baking")) {
+                        food.setMain("Main Dishes");
+                        food.setExpiryDate(180);
                         break;
-                    }
-                    else if ( mains[index].equals( "Health Foods" ) || mains[index].equals( "Produce" )|| mains[index].equals( "Dried Fruits" ) || mains[index].equals( "Nuts" ) || mains[index].equals( "Pasta and Rice" ) ){
-                        if( food.getMain().equals( "Dried Fruits" ) || mains[index].equals( "Nuts" ) )
-                            food.setExpiryDate( 365 );
+                    } else if (main.equals("Health Foods") || main.equals("Produce") || main.equals("Dried Fruits") || main.equals("Nuts") || main.equals("Pasta and Rice")) {
+                        if (food.getMain().equals("Dried Fruits") || main.equals("Nuts"))
+                            food.setExpiryDate(365);
                         else
-                            food.setExpiryDate( 21 );
-                        food.setMain( "Produce" );
+                            food.setExpiryDate(21);
+                        food.setMain("Produce");
                         break;
-                    }
-                    else if ( mains[index].equals( "Refrigerated" ) || mains[index].equals( "Frozen" ) ){
-                        food.setMain( "Freezer" );
-                        food.setExpiryDate( 365 );
+                    } else if (main.equals("Refrigerated") || main.equals("Frozen")) {
+                        food.setMain("Freezer");
+                        food.setExpiryDate(365);
                         break;
-                    }
-                    else if ( mains[index].equals( "Tea and Coffee" ) || mains[index].equals( "Beverages" ) || mains[index].equals( "Alcoholic Beverages" ) ){
-                        food.setMain( "Drink" );
-                        food.setExpiryDate( 365 );
+                    } else if (main.equals("Tea and Coffee") || main.equals("Beverages") || main.equals("Alcoholic Beverages")) {
+                        food.setMain("Drink");
+                        food.setExpiryDate(365);
                         break;
-                    }
-                    else if ( mains[index].equals( "Bakery/Bread" ) || mains[index].equals( "Nut butters, Jams, and Honey" ) || mains[index].equals( "Bread" ) || mains[index].equals( "Milk, Eggs, Other Dairy" ) || mains[index].equals( "Cheese" ) || mains[index].equals( "Cereal" ) ){
-                        food.setMain( "Breakfast" );
-                        food.setExpiryDate( 60 );
+                    } else if (main.equals("Bakery/Bread") || main.equals("Nut butters, Jams, and Honey") || main.equals("Bread") || main.equals("Milk, Eggs, Other Dairy") || main.equals("Cheese") || main.equals("Cereal")) {
+                        food.setMain("Breakfast");
+                        food.setExpiryDate(60);
                         break;
-                    }
-                    else if ( mains[index].equals( "Condiments" ) || mains[index].equals( "Ethnic Foods" ) || mains[index].equals( "Spices and Seasonings" ) || mains[index].equals( "Oil, Vinegar, Salad Dressing" ) || mains[index].equals( "Savory Snacks" ) || mains[index].equals( "Sweet Snacks" ) || mains[index].equals( "Canned and Jarred" ) || mains[index].equals( "Gourmet" ) || mains[index].equals( "Grilling Supplies" ) || mains[index].equals( "Online" ) || mains[index].equals( "Homemade" ) || mains[index] == null || mains[index].equals( "" )){
-                        food.setMain( "Food Addons" );
-                        food.setExpiryDate( 365 );
+                    } else if (main.equals("Condiments") || main.equals("Ethnic Foods") || main.equals("Spices and Seasonings") || main.equals("Oil, Vinegar, Salad Dressing") || main.equals("Savory Snacks") || main.equals("Sweet Snacks") || main.equals("Canned and Jarred") || main.equals("Gourmet") || main.equals("Grilling Supplies") || main.equals("Online") || main.equals("Homemade") || main == null || main.equals("")) {
+                        food.setMain("Food Addons");
+                        food.setExpiryDate(365);
                         break;
                     }
 
@@ -476,7 +455,7 @@ public class AddFoodGUI extends javax.swing.JFrame {
      */
     public static String textReader() throws FileNotFoundException
     {
-        File file = new File("filename.txt");
+        File file = new File("lib/logs/filename.txt");
         Scanner scan = new Scanner( file );
         String name = scan.next();
         scan.close();
@@ -505,7 +484,7 @@ public class AddFoodGUI extends javax.swing.JFrame {
                 //System.out.println( foodName );
                 int index = -1;
                 for (int count = 0; count < foodList.length; count++) {
-                    if ( foodList[count] == foodName)
+                    if (Objects.equals(foodList[count], foodName))
                         index = count + foodList.length / 2;
                 }
 
@@ -513,9 +492,7 @@ public class AddFoodGUI extends javax.swing.JFrame {
                     try {
                         food = foodApi.getFoodInformation(Integer.parseInt(foodList[index]));
                         //System.out.println( "ID: " + food.getId() + " Name: " + food.toString() + " Main: " + food.getMain() + " Calorie: " + food.getCaloriePerPortion() );
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } catch (InterruptedException e) {
+                    } catch (IOException | InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
@@ -568,12 +545,12 @@ public class AddFoodGUI extends javax.swing.JFrame {
      * @return data String string that contains just digits
      */
     private static String findJustDigit( String str ){
-        String data = "";
+        StringBuilder data = new StringBuilder();
         for( int count = 0; count < str.length(); count++ ){
             if ( Character.isDigit( str.charAt( count ) ) )
-                data += str.charAt( count );
+                data.append(str.charAt( count ) );
         }
-        return data;
+        return data.toString();
     }
 
     /**
@@ -664,7 +641,7 @@ public class AddFoodGUI extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -683,11 +660,7 @@ public class AddFoodGUI extends javax.swing.JFrame {
         String apiKey3 = "da73587c8emsh6ca56b7d9f2a385p1699dcjsnf6a7ee99f8e3";
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AddFoodGUI( new SpoonacularAPI() ).setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new AddFoodGUI( new SpoonacularAPI() ).setVisible(true));
     }
 }
 

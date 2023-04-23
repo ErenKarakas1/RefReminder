@@ -1,6 +1,6 @@
 package GUI;
 
-import java.awt.Desktop;
+import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -9,9 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.Scanner;
 
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import java.net.*;
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -25,7 +23,7 @@ import java.net.*;
  */
 public class Feedback extends javax.swing.JFrame {
 	
-	ImageIcon icon = new ImageIcon("indir_15x15.jpg");
+	ImageIcon icon = new ImageIcon("lib/images/star.jpg");
 	int count = 0;
     String name;
     Desktop desktop;
@@ -78,73 +76,49 @@ public class Feedback extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", Font.BOLD, 24)); // NOI18N
         jLabel1.setText("Feedback");
 
         jRadioButton6.setBackground(new java.awt.Color(255, 255, 255));
         jRadioButton6.setText("5");
-        jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton6ActionPerformed(evt);
-            }
-        });
+        jRadioButton6.addActionListener(this::jRadioButton6ActionPerformed);
 
         jLabel3.setIcon(icon); // NOI18N
 
         jRadioButton7.setBackground(new java.awt.Color(255, 255, 255));
         jRadioButton7.setText("4");
-        jRadioButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton7ActionPerformed(evt);
-            }
-        });
+        jRadioButton7.addActionListener(this::jRadioButton7ActionPerformed);
 
         jLabel4.setIcon(icon); // NOI18N
 
         jRadioButton8.setBackground(new java.awt.Color(255, 255, 255));
         jRadioButton8.setText("3");
-        jRadioButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton8ActionPerformed(evt);
-            }
-        });
+        jRadioButton8.addActionListener(this::jRadioButton8ActionPerformed);
 
         jLabel5.setIcon(icon); // NOI18N
 
         jRadioButton9.setBackground(new java.awt.Color(255, 255, 255));
         jRadioButton9.setText("2");
-        jRadioButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton9ActionPerformed(evt);
-            }
-        });
+        jRadioButton9.addActionListener(this::jRadioButton9ActionPerformed);
 
         jLabel6.setIcon(icon); // NOI18N
 
         jRadioButton10.setBackground(new java.awt.Color(255, 255, 255));
         jRadioButton10.setText("1");
-        jRadioButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton10ActionPerformed(evt);
-            }
-        });
+        jRadioButton10.addActionListener(this::jRadioButton10ActionPerformed);
 
         jLabel7.setIcon(icon); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", Font.BOLD, 12)); // NOI18N
         jLabel2.setText("Rate Us!");
 
         jButton1.setBackground(new java.awt.Color(255, 102, 102));
         jButton1.setText("Send");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jButton1.addActionListener(this::jButton1ActionPerformed);
 
         jTextArea1.setBackground(new java.awt.Color(245, 245, 245));
         jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTextArea1.setFont(new java.awt.Font("Tahoma", Font.BOLD, 12)); // NOI18N
         jTextArea1.setRows(5);
         jTextArea1.setText("Write your comment!");
         jTextArea1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -156,23 +130,17 @@ public class Feedback extends javax.swing.JFrame {
 
         jButton3.setBackground(new java.awt.Color(255, 102, 102));
         jButton3.setText("Back");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
+        jButton3.addActionListener(this::jButton3ActionPerformed);
 
         jButton4.setBackground(new java.awt.Color(255, 102, 102));
         jButton4.setText("Contact Us");
         jButton4.setActionCommand("Contact");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-					jButton4ActionPerformed(evt);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+        jButton4.addActionListener(evt -> {
+            try {
+                jButton4ActionPerformed(evt);
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
             }
         });
 
@@ -405,7 +373,7 @@ public class Feedback extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -418,23 +386,14 @@ public class Feedback extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Feedback.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Feedback.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Feedback.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | UnsupportedLookAndFeelException | IllegalAccessException |
+                 InstantiationException ex) {
             java.util.logging.Logger.getLogger(Feedback.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Feedback().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new Feedback().setVisible(true));
     }
 
     /**
@@ -445,7 +404,7 @@ public class Feedback extends javax.swing.JFrame {
      */
     public static String textReader() throws FileNotFoundException
     {
-        File file = new File("filename.txt");
+        File file = new File("lib/logs/filename.txt");
         Scanner scan = new Scanner( file );
         String name = scan.next();
         scan.close();

@@ -48,97 +48,81 @@ public class ShoppingPage extends javax.swing.JFrame {
         jPanel1.setLayout(new java.awt.GridLayout());
 
         jButton1.setBackground(new java.awt.Color(255, 102, 255));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton1.setText("Main Menu");
         jButton1.setToolTipText("");
         jButton1.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    jButton1ActionPerformed(evt);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        jButton1.addActionListener(evt -> {
+            try {
+                jButton1ActionPerformed(evt);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         });
         topPanel.add(jButton1);
 
         jButton2.setBackground(new java.awt.Color(255, 51, 51));
-        jButton2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton2.setText("Stock Control");
         jButton2.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        jButton2.addActionListener(this::jButton2ActionPerformed);
         topPanel.add(jButton2);
 
         jButton3.setBackground(new java.awt.Color(0, 153, 0));
-        jButton3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton3.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton3.setText("Reciper");
         jButton3.setPreferredSize(new java.awt.Dimension(120, 35));
         jButton3.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    jButton3ActionPerformed(evt);
-                } catch (IOException | InterruptedException e) {
-                    e.printStackTrace();
-                }
+        jButton3.addActionListener(evt -> {
+            try {
+                jButton3ActionPerformed(evt);
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
             }
         });
         topPanel.add(jButton3);
 
         jButton4.setBackground(new java.awt.Color(255, 51, 0));
-        jButton4.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton4.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton4.setText("Restaurants");
         jButton4.setPreferredSize(new java.awt.Dimension(120, 35));
         jButton4.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    jButton4ActionPerformed(evt);
-                } catch (URISyntaxException | IOException | InterruptedException e) {
-                    e.printStackTrace();
-                }
+        jButton4.addActionListener(evt -> {
+            try {
+                jButton4ActionPerformed(evt);
+            } catch (URISyntaxException | IOException | InterruptedException e) {
+                e.printStackTrace();
             }
         });
         topPanel.add(jButton4);
 
         jButton5.setBackground(new java.awt.Color(51, 153, 255));
-        jButton5.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton5.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton5.setText("Bilkent Menu");
         jButton5.setPreferredSize(new java.awt.Dimension(120, 35));
         jButton5.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    jButton5ActionPerformed(evt);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        jButton5.addActionListener(evt -> {
+            try {
+                jButton5ActionPerformed(evt);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         });
         topPanel.add(jButton5);
 
         jButton6.setBackground(new java.awt.Color(102, 255, 102));
-        jButton6.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton6.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton6.setText("Shopping");
         jButton6.setPreferredSize(new java.awt.Dimension(120, 35));
         jButton6.setPreferredSize(new java.awt.Dimension(120, 35));
         topPanel.add(jButton6);
 
         jButton7.setBackground(new java.awt.Color(0, 255, 204));
-        jButton7.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton7.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton7.setText("Settings");
         jButton7.setPreferredSize(new java.awt.Dimension(120, 35));
         jButton7.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
+        jButton7.addActionListener(this::jButton7ActionPerformed);
         topPanel.add(jButton7);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -221,7 +205,7 @@ public class ShoppingPage extends javax.swing.JFrame {
      *
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -240,11 +224,7 @@ public class ShoppingPage extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ShoppingPage().setVisible( true );
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new ShoppingPage().setVisible( true ));
     }
 
     // Variables declaration

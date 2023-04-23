@@ -40,7 +40,7 @@ public class TimePassed {
      * @throws ParseException
      */
     public static long getDifferenceInDays() throws IOException, ParseException {
-        Scanner inputFile = new Scanner( new File("date.txt" ) );
+        Scanner inputFile = new Scanner( new File("lib/logs/date.txt" ) );
         String line;
 
         // If there is login prior, gets current date
@@ -62,7 +62,7 @@ public class TimePassed {
         long differenceDays = difference_In_Time / ( 1000 * 60 * 60 * 24 );
 
         // Changes the last login date
-        FileWriter fw = new FileWriter ("date.txt" );
+        FileWriter fw = new FileWriter ("lib/logs/date.txt" );
         PrintWriter pw = new PrintWriter ( fw );
 
         pw.println( date );

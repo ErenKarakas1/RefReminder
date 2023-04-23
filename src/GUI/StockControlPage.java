@@ -159,7 +159,7 @@ public class StockControlPage extends javax.swing.JFrame {
         jProgressBar1.setForeground(Color.black);
         percentage = (sd.getFood().size() / (double)MY_MAXIMUM) * 100;
         percentageNum = (int) percentage;
-        percentageString = Double.toString(percentageNum);;
+        percentageString = Double.toString(percentageNum);
         jProgressBar1.setString("% "+ percentageString);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -167,153 +167,105 @@ public class StockControlPage extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jButton1.setBackground(new java.awt.Color(255, 102, 255));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton1.setText("Main Menu");
         jButton1.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jButton1.addActionListener(this::jButton1ActionPerformed);
 
         jButton8.setBackground(new java.awt.Color(255, 51, 51));
-        jButton8.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton8.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton8.setText("Stock Control");
         jButton8.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
+        jButton8.addActionListener(this::jButton8ActionPerformed);
 
         jButton10.setBackground(new java.awt.Color(0, 153, 0));
-        jButton10.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton10.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton10.setText("Reciper");
         jButton10.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    jButton10ActionPerformed(evt);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+        jButton10.addActionListener(evt -> {
+            try {
+                jButton10ActionPerformed(evt);
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
             }
         });
 
         jButton9.setBackground(new java.awt.Color(255, 51, 0));
-        jButton9.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton9.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton9.setText("Restaurants");
         jButton9.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    jButton9ActionPerformed(evt);
-                } catch (IOException | URISyntaxException | InterruptedException e) {
-                    e.printStackTrace();
-                }
+        jButton9.addActionListener(evt -> {
+            try {
+                jButton9ActionPerformed(evt);
+            } catch (IOException | URISyntaxException | InterruptedException e) {
+                e.printStackTrace();
             }
         });
 
         jButton11.setBackground(new java.awt.Color(51, 153, 255));
-        jButton11.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton11.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton11.setText("Bilkent Menu");
         jButton11.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    jButton11ActionPerformed(evt);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        jButton11.addActionListener(evt -> {
+            try {
+                jButton11ActionPerformed(evt);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         });
 
         jButton12.setBackground(new java.awt.Color(102, 255, 102));
-        jButton12.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton12.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton12.setText("Shopping");
         jButton12.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
-            }
-        });
+        jButton12.addActionListener(this::jButton12ActionPerformed);
 
         jButton13.setBackground(new java.awt.Color(0, 51, 204));
-        jButton13.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton13.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton13.setText("Settings");
         jButton13.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
-            }
-        });
+        jButton13.addActionListener(this::jButton13ActionPerformed);
 
         jButton2.setBackground(new java.awt.Color(255, 102, 102));
         jButton2.setText("...");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        jButton2.addActionListener(this::jButton2ActionPerformed);
 
         jButton3.setBackground(new java.awt.Color(255, 102, 102));
         jButton3.setText("...");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
+        jButton3.addActionListener(this::jButton3ActionPerformed);
 
         jButton4.setBackground(new java.awt.Color(255, 102, 102));
         jButton4.setText("...");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
+        jButton4.addActionListener(this::jButton4ActionPerformed);
 
         jButton5.setBackground(new java.awt.Color(255, 102, 102));
         jButton5.setText("...");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
+        jButton5.addActionListener(this::jButton5ActionPerformed);
 
         jButton6.setBackground(new java.awt.Color(255, 102, 102));
         jButton6.setText("...");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
+        jButton6.addActionListener(this::jButton6ActionPerformed);
 
         jButton7.setBackground(new java.awt.Color(255, 102, 102));
         jButton7.setText("...");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
+        jButton7.addActionListener(this::jButton7ActionPerformed);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", Font.BOLD, 18)); // NOI18N
         jLabel2.setText("Freezer");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", Font.BOLD, 18)); // NOI18N
         jLabel3.setText("Main Dishes");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", Font.BOLD, 18)); // NOI18N
         jLabel4.setText("Produce");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", Font.BOLD, 18)); // NOI18N
         jLabel5.setText("Breakfast");
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", Font.BOLD, 18)); // NOI18N
         jLabel6.setText("Drinks");
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", Font.BOLD, 18)); // NOI18N
         jLabel7.setText("Addons");
 
         // Layout
@@ -401,52 +353,52 @@ public class StockControlPage extends javax.swing.JFrame {
                                 .addContainerGap())
         );
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", Font.BOLD, 11)); // NOI18N
         jLabel1.setText("Storage Capacity");
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", Font.BOLD, 14)); // NOI18N
         jLabel8.setText("Food Number in Storage");
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Tahoma", Font.BOLD, 12)); // NOI18N
         String y = Integer.toString(sd.getNumOfFreezer());
         jLabel9.setText(y);
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Tahoma", Font.BOLD, 12)); // NOI18N
         String u = Integer.toString(sd.getNumOfMainDishes());
         jLabel10.setText(u);
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Tahoma", Font.BOLD, 12)); // NOI18N
         String o = Integer.toString(sd.getNumOfProduce());
         jLabel11.setText(o);
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Tahoma", Font.BOLD, 12)); // NOI18N
         String p = Integer.toString(sd.getNumOfBreakfast());
         jLabel12.setText(p);
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Tahoma", Font.BOLD, 12)); // NOI18N
         String q = Integer.toString(sd.getNumOfDrinks());
         jLabel13.setText(q);
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Tahoma", Font.BOLD, 12)); // NOI18N
         String w = Integer.toString(sd.getNumOfAddons());
         jLabel14.setText(w);
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Tahoma", Font.BOLD, 15)); // NOI18N
         jLabel15.setText("in Produce");
 
-        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Tahoma", Font.BOLD, 15)); // NOI18N
         jLabel16.setText("in Freezer");
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Tahoma", Font.BOLD, 15)); // NOI18N
         jLabel17.setText("in Main Dishes");
 
-        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Tahoma", Font.BOLD, 15)); // NOI18N
         jLabel18.setText("in Breakfast");
 
-        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Tahoma", Font.BOLD, 15)); // NOI18N
         jLabel19.setText("in Addons");
 
-        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Tahoma", Font.BOLD, 15)); // NOI18N
         jLabel20.setText("in Drinks");
 
         // Layout
@@ -516,10 +468,10 @@ public class StockControlPage extends javax.swing.JFrame {
                                 .addGap(23, 23, 23))
         );
 
-        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("Tahoma", Font.BOLD, 14)); // NOI18N
         jLabel21.setText("Warnings");
 
-        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("Tahoma", Font.PLAIN, 14)); // NOI18N
         String warningMessage = "";
         String warning = findWarning(0);
         if( !warning.equals( "" )){
@@ -529,7 +481,7 @@ public class StockControlPage extends javax.swing.JFrame {
             jLabel24.setText( "There is no food expiring in 5 days!" );
         }
 
-        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel25.setFont(new java.awt.Font("Tahoma", Font.PLAIN, 14)); // NOI18N
         String warning2 = findWarning(1);
         if( !warning2.equals( "" )){
             jLabel25.setText( warning + " will be expired in 5 days!");
@@ -565,29 +517,21 @@ public class StockControlPage extends javax.swing.JFrame {
 
 
         jButton14.setBackground(new java.awt.Color(204, 102, 255));
-        jButton14.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton14.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton14.setText("Add Food");
         jButton14.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
-            }
-        });
+        jButton14.addActionListener(this::jButton14ActionPerformed);
 
         jButton15.setBackground(new java.awt.Color(255, 102, 0));
-        jButton15.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton15.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton15.setText("Remove Food");
         jButton15.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
-            }
-        });
+        jButton15.addActionListener(this::jButton15ActionPerformed);
 
-        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Tahoma", Font.BOLD, 12)); // NOI18N
         jLabel22.setText("Max Storage: 150");
 
-        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("Tahoma", Font.BOLD, 22)); // NOI18N
         jLabel23.setText("Stock Control");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -877,7 +821,7 @@ public class StockControlPage extends javax.swing.JFrame {
      */
     public static String textReader() throws FileNotFoundException
     {
-        File file = new File("filename.txt");
+        File file = new File("lib/logs/filename.txt");
         Scanner scan = new Scanner( file );
         String name = scan.next();
         scan.close();
@@ -892,30 +836,17 @@ public class StockControlPage extends javax.swing.JFrame {
      */
     private JTable newTable(String str){
         int f;
-        ArrayList<Food> newFoodList = new ArrayList<Food>();
-        //if(str.equals("food")){
-        //   newFoodList.addAll(sd.getFood());
-        //}
-        if(str.equals("Produce")){
-            newFoodList.addAll(sd.getProduceList());
-        }
-        else if(str.equals("Main Dishes")){
-            newFoodList.addAll(sd.getMainDishesList());
-        }
-        else if(str.equals("Freezer")){
-            newFoodList.addAll(sd.getFreezerList());
-        }
-        else if(str.equals("Drinks")){
-            newFoodList.addAll(sd.getDrinkList());
-        }
-        else if(str.equals("Breakfast")){
-            newFoodList.addAll(sd.getBreakfastList());
-        }
-        else if(str.equals("Addons")){
-            newFoodList.addAll(sd.getAddonsList());
+        ArrayList<Food> newFoodList = new ArrayList<>();
+
+        switch (str) {
+            case "Produce" -> newFoodList.addAll(sd.getProduceList());
+            case "Main Dishes" -> newFoodList.addAll(sd.getMainDishesList());
+            case "Freezer" -> newFoodList.addAll(sd.getFreezerList());
+            case "Drinks" -> newFoodList.addAll(sd.getDrinkList());
+            case "Breakfast" -> newFoodList.addAll(sd.getBreakfastList());
+            case "Addons" -> newFoodList.addAll(sd.getAddonsList());
         }
 
-        f = newFoodList.size();
         DefaultTableModel tableModel = new DefaultTableModel(0, 0);
         //int id, String foodName, String main, Number calorie
         tableModel.addColumn("FoodName");
@@ -924,11 +855,11 @@ public class StockControlPage extends javax.swing.JFrame {
         tableModel.addColumn("ExpiryDates");
 
         // Get nutrient values
-        for (int i = 0; i < newFoodList.size(); i++){
-            String FoodName = newFoodList.get(i).getFoodName();
-            int Quantity = (int) newFoodList.get(i).getAmount();
-            int Calorie = (int) newFoodList.get(i).getCaloriePerPortion().doubleValue();
-            int ExpiryDates = newFoodList.get(i).getExpiryDate();
+        for (Food food : newFoodList) {
+            String FoodName = food.getFoodName();
+            int Quantity = (int) food.getAmount();
+            int Calorie = (int) food.getCaloriePerPortion().doubleValue();
+            int ExpiryDates = food.getExpiryDate();
             Object[] data = {FoodName, Quantity, Calorie, ExpiryDates};
             tableModel.addRow(data);
 
@@ -965,7 +896,7 @@ public class StockControlPage extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -985,11 +916,7 @@ public class StockControlPage extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new StockControlPage().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new StockControlPage().setVisible(true));
     }
 
     // Variables declaration

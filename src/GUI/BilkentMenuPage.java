@@ -2,6 +2,8 @@ package GUI;
 
 import Logic.PdfReader;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.net.URISyntaxException;
@@ -66,190 +68,156 @@ public class BilkentMenuPage extends javax.swing.JFrame {
         jPanel1.setLayout(new java.awt.GridLayout( 1, 0));
 
         jButton1.setBackground(new java.awt.Color( 255, 102, 255 ) );
-        jButton1.setFont(new java.awt.Font( "Times New Roman", 0, 12 ) );
+        jButton1.setFont(new java.awt.Font( "Times New Roman", Font.PLAIN, 12 ) );
         jButton1.setText( "Main Menu" );
         jButton1.setToolTipText( "" );
         jButton1.setPreferredSize(new java.awt.Dimension(120, 35 ) );
-        jButton1.addActionListener( new java.awt.event.ActionListener() {
-            public void actionPerformed( java.awt.event.ActionEvent evt ) {
-                try {
-                    jButton1ActionPerformed( evt );
-                } catch ( IOException ex ) {
-                    ex.printStackTrace();
-                }
+        jButton1.addActionListener(evt -> {
+            try {
+                jButton1ActionPerformed( evt );
+            } catch ( IOException ex ) {
+                ex.printStackTrace();
             }
         });
         jPanel1.add( jButton1 );
 
         jButton2.setBackground(new java.awt.Color(255, 51, 51 ) );
-        jButton2.setFont( new java.awt.Font( "Times New Roman", 0, 12 ) );
+        jButton2.setFont( new java.awt.Font( "Times New Roman", Font.PLAIN, 12 ) );
         jButton2.setText( "Stock Control" );
         jButton2.setPreferredSize( new java.awt.Dimension(120, 35 ) );
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed( evt );
-            }
-        });
+        jButton2.addActionListener(this::jButton2ActionPerformed);
         jPanel1.add(jButton2);
 
         jButton3.setBackground(new java.awt.Color( 0, 153, 0 ) );
-        jButton3.setFont(new java.awt.Font("Times New Roman", 0, 12 ) );
+        jButton3.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12 ) );
         jButton3.setText( "Reciper" );
         jButton3.setPreferredSize( new java.awt.Dimension(120, 35 ) );
         jButton3.setPreferredSize( new java.awt.Dimension(120, 35 ) );
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed( java.awt.event.ActionEvent evt ) {
-                try {
-                    jButton3ActionPerformed( evt );
-                } catch ( IOException | InterruptedException ex ) {
-                    ex.printStackTrace();
-                }
+        jButton3.addActionListener(evt -> {
+            try {
+                jButton3ActionPerformed( evt );
+            } catch ( IOException | InterruptedException ex ) {
+                ex.printStackTrace();
             }
         });
         jPanel1.add( jButton3 );
 
         jButton4.setBackground( new java.awt.Color(255, 51, 0 ) );
-        jButton4.setFont( new java.awt.Font("Times New Roman", 0, 12 ) ); // NOI18N
+        jButton4.setFont( new java.awt.Font("Times New Roman", Font.PLAIN, 12 ) ); // NOI18N
         jButton4.setText( "Restaurants" );
         jButton4.setPreferredSize( new java.awt.Dimension(120, 35 ) );
         jButton4.setPreferredSize( new java.awt.Dimension(120, 35 ) );
-        jButton4.addActionListener( new java.awt.event.ActionListener() {
-            public void actionPerformed( java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed( evt );
-            }
-        });
+        jButton4.addActionListener(this::jButton4ActionPerformed);
         jPanel1.add( jButton4 );
 
         jButton5.setBackground(new java.awt.Color(51, 153, 255 ) );
-        jButton5.setFont(new java.awt.Font("Times New Roman", 0, 12 ) ); // NOI18N
+        jButton5.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12 ) ); // NOI18N
         jButton5.setText( "Bilkent Menu" );
         jButton5.setPreferredSize( new java.awt.Dimension(120, 35 ) );
         jButton5.setPreferredSize( new java.awt.Dimension(120, 35 ) );
         jPanel1.add( jButton5 );
 
         jButton6.setBackground(new java.awt.Color(102, 255, 102));
-        jButton6.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton6.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton6.setText("Shopping");
         jButton6.setPreferredSize(new java.awt.Dimension(120, 35));
         jButton6.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
+        jButton6.addActionListener(this::jButton6ActionPerformed);
         jPanel1.add(jButton6);
 
         jButton7.setBackground(new java.awt.Color(0, 255, 204));
-        jButton7.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton7.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton7.setText("Settings");
         jButton7.setPreferredSize(new java.awt.Dimension(120, 35));
         jButton7.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
+        jButton7.addActionListener(this::jButton7ActionPerformed);
         jPanel1.add(jButton7);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setPreferredSize(new java.awt.Dimension(840, 445));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", Font.BOLD, 18)); // NOI18N
         jLabel5.setText("Dinner");
 
         jButton8.setText("Monday");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-                int n = 0;
-                jLabel8.setText("<html>" + "<br>" + (String) Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
-                        "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "</html>");
-                jLabel9.setText("<html>" + "<br>" + (String)Array.get(lines, n + 5) + "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) +
-                        "<br>" + (String)Array.get(lines, n + 8) +  "<br>" + (String)Array.get(lines, n + 9) + "<br>" + "</html>");
-            }
+        jButton8.addActionListener(evt -> {
+            jButton8ActionPerformed(evt);
+            int n = 0;
+            jLabel8.setText("<html>" + "<br>" + Array.get(lines, n) + "<br>" + Array.get(lines, n + 1) + "<br>" + Array.get(lines, n + 2) +
+                    "<br>" + Array.get(lines, n + 3) +  "<br>" + Array.get(lines, n + 4) + "<br>" + "</html>");
+            jLabel9.setText("<html>" + "<br>" + Array.get(lines, n + 5) + "<br>" + Array.get(lines, n + 6) + "<br>" + Array.get(lines, n + 7) +
+                    "<br>" + Array.get(lines, n + 8) +  "<br>" + Array.get(lines, n + 9) + "<br>" + "</html>");
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("bilkentlogo1.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("lib/images/bilkent.png")); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", Font.BOLD, 22)); // NOI18N
         jLabel1.setText("Bilkent Menu");
 
         jButton9.setText("Tuesday");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-                int n = 10;
-                jLabel8.setText("<html>" + "<br>" + (String)Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
-                        "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "</html>");
-                jLabel9.setText("<html>" + "<br>" + (String)Array.get(lines, n + 5) + "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) +
-                        "<br>" + (String)Array.get(lines, n + 8) +  "<br>" + (String)Array.get(lines, n + 9) + "<br>" + "</html>");
-            }
+        jButton9.addActionListener(evt -> {
+            jButton9ActionPerformed(evt);
+            int n = 10;
+            jLabel8.setText("<html>" + "<br>" + Array.get(lines, n) + "<br>" + Array.get(lines, n + 1) + "<br>" + Array.get(lines, n + 2) +
+                    "<br>" + Array.get(lines, n + 3) +  "<br>" + Array.get(lines, n + 4) + "<br>" + "</html>");
+            jLabel9.setText("<html>" + "<br>" + Array.get(lines, n + 5) + "<br>" + Array.get(lines, n + 6) + "<br>" + Array.get(lines, n + 7) +
+                    "<br>" + Array.get(lines, n + 8) +  "<br>" + Array.get(lines, n + 9) + "<br>" + "</html>");
         });
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", Font.BOLD, 16)); // NOI18N
         jLabel3.setText("Select the Day");
 
         jButton10.setText("Wednesday");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
-                int n = 20;
-                jLabel8.setText("<html>" + "<br>" + (String)Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
-                        "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "</html>");
-                jLabel9.setText("<html>" + "<br>" + (String)Array.get(lines, n + 5) + "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) +
-                        "<br>" + (String)Array.get(lines, n + 8) +  "<br>" + (String)Array.get(lines, n + 9) + "<br>" + "</html>");
-            }
+        jButton10.addActionListener(evt -> {
+            jButton10ActionPerformed(evt);
+            int n = 20;
+            jLabel8.setText("<html>" + "<br>" + Array.get(lines, n) + "<br>" + Array.get(lines, n + 1) + "<br>" + Array.get(lines, n + 2) +
+                    "<br>" + Array.get(lines, n + 3) +  "<br>" + Array.get(lines, n + 4) + "<br>" + "</html>");
+            jLabel9.setText("<html>" + "<br>" + Array.get(lines, n + 5) + "<br>" + Array.get(lines, n + 6) + "<br>" + Array.get(lines, n + 7) +
+                    "<br>" + Array.get(lines, n + 8) +  "<br>" + Array.get(lines, n + 9) + "<br>" + "</html>");
         });
 
         jButton11.setText("Thursday");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
-                int n = 30;
-                jLabel8.setText("<html>" + "<br>" + (String)Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
-                        "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "</html>");
-                jLabel9.setText("<html>" + "<br>" + (String)Array.get(lines, n + 5) + "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) +
-                        "<br>" + (String)Array.get(lines, n + 8) +  "<br>" + (String)Array.get(lines, n + 9) + "<br>" + "</html>");
-            }
+        jButton11.addActionListener(evt -> {
+            jButton11ActionPerformed(evt);
+            int n = 30;
+            jLabel8.setText("<html>" + "<br>" + Array.get(lines, n) + "<br>" + Array.get(lines, n + 1) + "<br>" + Array.get(lines, n + 2) +
+                    "<br>" + Array.get(lines, n + 3) +  "<br>" + Array.get(lines, n + 4) + "<br>" + "</html>");
+            jLabel9.setText("<html>" + "<br>" + Array.get(lines, n + 5) + "<br>" + Array.get(lines, n + 6) + "<br>" + Array.get(lines, n + 7) +
+                    "<br>" + Array.get(lines, n + 8) +  "<br>" + Array.get(lines, n + 9) + "<br>" + "</html>");
         });
 
         jButton12.setText("Friday");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
-                int n = 40;
-                jLabel8.setText("<html>" + "<br>" + (String)Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
-                        "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "</html>");
-                jLabel9.setText("<html>" + "<br>" + (String)Array.get(lines, n + 5) + "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) +
-                        "<br>" + (String)Array.get(lines, n + 8) +  "<br>" + (String)Array.get(lines, n + 9) + "<br>" + "</html>");
-            }
+        jButton12.addActionListener(evt -> {
+            jButton12ActionPerformed(evt);
+            int n = 40;
+            jLabel8.setText("<html>" + "<br>" + Array.get(lines, n) + "<br>" + Array.get(lines, n + 1) + "<br>" + Array.get(lines, n + 2) +
+                    "<br>" + Array.get(lines, n + 3) +  "<br>" + Array.get(lines, n + 4) + "<br>" + "</html>");
+            jLabel9.setText("<html>" + "<br>" + Array.get(lines, n + 5) + "<br>" + Array.get(lines, n + 6) + "<br>" + Array.get(lines, n + 7) +
+                    "<br>" + Array.get(lines, n + 8) +  "<br>" + Array.get(lines, n + 9) + "<br>" + "</html>");
         });
 
         jButton13.setText("Saturday");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
-                int n = 50;
-                jLabel8.setText("<html>" + "<br>" + (String)Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
-                        "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "</html>");
-                jLabel9.setText("<html>" + "<br>" + (String)Array.get(lines, n + 5) + "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) +
-                        "<br>" + (String)Array.get(lines, n + 8) +  "<br>" + (String)Array.get(lines, n + 9) + "<br>" + "</html>");
-            }
+        jButton13.addActionListener(evt -> {
+            jButton13ActionPerformed(evt);
+            int n = 50;
+            jLabel8.setText("<html>" + "<br>" + Array.get(lines, n) + "<br>" + Array.get(lines, n + 1) + "<br>" + Array.get(lines, n + 2) +
+                    "<br>" + Array.get(lines, n + 3) +  "<br>" + Array.get(lines, n + 4) + "<br>" + "</html>");
+            jLabel9.setText("<html>" + "<br>" + Array.get(lines, n + 5) + "<br>" + Array.get(lines, n + 6) + "<br>" + Array.get(lines, n + 7) +
+                    "<br>" + Array.get(lines, n + 8) +  "<br>" + Array.get(lines, n + 9) + "<br>" + "</html>");
         });
 
         jButton14.setText("Sunday");
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
-                int n = 60;
-                jLabel8.setText("<html>" + "<br>" + (String)Array.get(lines, n) + "<br>" + (String)Array.get(lines, n + 1) + "<br>" + (String)Array.get(lines, n + 2) +
-                        "<br>" + (String)Array.get(lines, n + 3) +  "<br>" + (String)Array.get(lines, n + 4) + "<br>" + "</html>");
-                jLabel9.setText("<html>" + "<br>" + (String)Array.get(lines, n + 5) + "<br>" + (String)Array.get(lines, n + 6) + "<br>" + (String)Array.get(lines, n + 7) +
-                        "<br>" + (String)Array.get(lines, n + 8) +  "<br>" + (String)Array.get(lines, n + 9) + "<br>" + "</html>");
-            }
+        jButton14.addActionListener(evt -> {
+            jButton14ActionPerformed(evt);
+            int n = 60;
+            jLabel8.setText("<html>" + "<br>" + Array.get(lines, n) + "<br>" + Array.get(lines, n + 1) + "<br>" + Array.get(lines, n + 2) +
+                    "<br>" + Array.get(lines, n + 3) +  "<br>" + Array.get(lines, n + 4) + "<br>" + "</html>");
+            jLabel9.setText("<html>" + "<br>" + Array.get(lines, n + 5) + "<br>" + Array.get(lines, n + 6) + "<br>" + Array.get(lines, n + 7) +
+                    "<br>" + Array.get(lines, n + 8) +  "<br>" + Array.get(lines, n + 9) + "<br>" + "</html>");
         });
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", Font.BOLD, 18)); // NOI18N
         jLabel4.setText("Lunch");
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -481,7 +449,7 @@ public class BilkentMenuPage extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -494,25 +462,18 @@ public class BilkentMenuPage extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BilkentMenuPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BilkentMenuPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BilkentMenuPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | UnsupportedLookAndFeelException | IllegalAccessException |
+                 InstantiationException ex) {
             java.util.logging.Logger.getLogger(BilkentMenuPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new BilkentMenuPage().setVisible(true);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        java.awt.EventQueue.invokeLater(() -> {
+            try {
+                new BilkentMenuPage().setVisible(true);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         });
     }

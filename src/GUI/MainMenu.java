@@ -5,6 +5,9 @@ import Logic.PdfReader;
 import Logic.User;
 import Logic.Food;
 import APIs.src.java.net.http.SpoonacularAPI;
+
+import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -94,116 +97,90 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jButtonMain.setBackground(new java.awt.Color(255, 102, 255));
-        jButtonMain.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButtonMain.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButtonMain.setText("Main Menu");
         jButtonMain.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButtonMain.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonMainActionPerformed(evt);
-            }
-        });
+        jButtonMain.addActionListener(this::jButtonMainActionPerformed);
 
         jButton2.setBackground(new java.awt.Color(255, 51, 51));
-        jButton2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton2.setText("Stock Control");
         jButton2.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        jButton2.addActionListener(this::jButton2ActionPerformed);
 
         jButton3.setBackground(new java.awt.Color(0, 153, 0));
-        jButton3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton3.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton3.setText("Reciper");
         jButton3.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    jButton3ActionPerformed(evt);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+        jButton3.addActionListener(evt -> {
+            try {
+                jButton3ActionPerformed(evt);
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
             }
         });
 
         jButton4.setBackground(new java.awt.Color(255, 51, 0));
-        jButton4.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton4.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton4.setText("Restaurants");
         jButton4.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-                RestaurantsPage restaurant = null;
+        jButton4.addActionListener(evt -> {
+            jButton4ActionPerformed(evt);
+            RestaurantsPage restaurant = null;
 
-            }
         });
 
         jButton5.setBackground(new java.awt.Color(51, 153, 255));
-        jButton5.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton5.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton5.setText("Bilkent Menu");
         jButton5.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
+        jButton5.addActionListener(this::jButton5ActionPerformed);
 
         jButton6.setBackground(new java.awt.Color(102, 255, 102));
-        jButton6.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton6.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButton6.setText("Shopping");
         jButton6.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
+        jButton6.addActionListener(this::jButton6ActionPerformed);
 
         jButtonSettings.setBackground(new java.awt.Color(0, 255, 204));
-        jButtonSettings.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButtonSettings.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); // NOI18N
         jButtonSettings.setText("Settings");
         jButtonSettings.setPreferredSize(new java.awt.Dimension(120, 35));
-        jButtonSettings.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSettingsActionPerformed(evt);
-            }
-        });
+        jButtonSettings.addActionListener(this::jButtonSettingsActionPerformed);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", Font.BOLD, 18)); // NOI18N
         jLabel1.setText("Main Menu");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", Font.BOLD, 14)); // NOI18N
         jLabel2.setText("User Information");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", Font.BOLD, 14)); // NOI18N
         jLabel3.setText("RefriMini");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", Font.BOLD, 14)); // NOI18N
         jLabel5.setText("Strange Information ");
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", Font.BOLD, 14)); // NOI18N
         jLabel6.setText("Jokes");
 
         jPanel2.setBackground(new java.awt.Color(0, 153, 102));
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Tahoma", Font.BOLD, 14)); // NOI18N
         jLabel9.setText("Username:");
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Tahoma", Font.BOLD, 14)); // NOI18N
         jLabel10.setText("Country:");
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Tahoma", Font.BOLD, 14)); // NOI18N
         jLabel11.setText("Province:");
 
-        jLabelUser.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabelUser.setFont(new java.awt.Font("Tahoma", Font.BOLD, 13)); // NOI18N
         jLabelUser.setText( user.getUsername() );
 
-        jLabelCountry.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabelCountry.setFont(new java.awt.Font("Tahoma", Font.BOLD, 13)); // NOI18N
         jLabelCountry.setText(user.getCountry());
 
-        jLabelProvince.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabelProvince.setFont(new java.awt.Font("Tahoma", Font.BOLD, 13)); // NOI18N
         jLabelProvince.setText(user.getProvince());
 
         // Layout
@@ -280,10 +257,10 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel7.setBackground(new java.awt.Color(255, 102, 102));
         jLabelLunch.setBackground( new java.awt.Color(255, 102, 102) );
         jLabelDinner.setBackground( new java.awt.Color(255, 102, 102) );
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", Font.BOLD, 12)); // NOI18N
         jLabel7.setText("Lunch");
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", Font.BOLD, 12)); // NOI18N
         jLabel8.setText("Dinner");
 
         jScrollPane4.setViewportView(jLabelLunch);
@@ -297,7 +274,7 @@ public class MainMenu extends javax.swing.JFrame {
         // Setting up Bilkent menu
         Date now = new Date();
         Calendar c = Calendar.getInstance();
-        c.setTime((Date)now);
+        c.setTime(now);
         int day = c.get(Calendar.DAY_OF_WEEK);
         PdfReader read = new PdfReader();
         String[] lines = read.give().split(System.getProperty("line.separator"));
@@ -311,53 +288,53 @@ public class MainMenu extends javax.swing.JFrame {
 
         if(day == 1) {
             int n = 60;
-            jLabelLunch.append( (String) Array.get(lines, n)  +  "\n" + (String)Array.get(lines, n + 1)  + "\n" + (String)Array.get(lines, n + 2) +
-                    "\n" + (String)Array.get(lines, n + 3)   );
+            jLabelLunch.append( Array.get(lines, n) +  "\n" + Array.get(lines, n + 1) + "\n" + Array.get(lines, n + 2) +
+                    "\n" + Array.get(lines, n + 3));
 
-            jLabelDinner.append( (String)Array.get(lines, n + 5) +  "\n"+ (String)Array.get(lines, n + 6)  +  "\n"+ (String)Array.get(lines, n + 7) +  "\n"
-                    + (String)Array.get(lines, n + 8)  );
+            jLabelDinner.append( Array.get(lines, n + 5) +  "\n"+ Array.get(lines, n + 6) +  "\n"+ Array.get(lines, n + 7) +  "\n"
+                    + Array.get(lines, n + 8));
         }
         if(day == 2) {
             int n = 0;
-            jLabelLunch.append( (String) Array.get(lines, n)  +  "\n" + (String)Array.get(lines, n + 1)  + "\n" + (String)Array.get(lines, n + 2) +
-                    "\n" + (String)Array.get(lines, n + 3)   );
-            jLabelDinner.append( (String)Array.get(lines, n + 5) +  "\n"+ (String)Array.get(lines, n + 6)  +  "\n"+ (String)Array.get(lines, n + 7) +  "\n"
-                    + (String)Array.get(lines, n + 8)  );
+            jLabelLunch.append( Array.get(lines, n) +  "\n" + Array.get(lines, n + 1) + "\n" + Array.get(lines, n + 2) +
+                    "\n" + Array.get(lines, n + 3));
+            jLabelDinner.append( Array.get(lines, n + 5) +  "\n"+ Array.get(lines, n + 6) +  "\n"+ Array.get(lines, n + 7) +  "\n"
+                    + Array.get(lines, n + 8));
         }
         if(day == 3) {
             int n = 10;
-            jLabelLunch.append( (String) Array.get(lines, n)  +  "\n" + (String)Array.get(lines, n + 1)  + "\n" + (String)Array.get(lines, n + 2) +
-                    "\n" + (String)Array.get(lines, n + 3)   );
-            jLabelDinner.append( (String)Array.get(lines, n + 5) +  "\n"+ (String)Array.get(lines, n + 6)  +  "\n"+ (String)Array.get(lines, n + 7) +  "\n"
-                    + (String)Array.get(lines, n + 8)  );
+            jLabelLunch.append( Array.get(lines, n) +  "\n" + Array.get(lines, n + 1) + "\n" + Array.get(lines, n + 2) +
+                    "\n" + Array.get(lines, n + 3));
+            jLabelDinner.append( Array.get(lines, n + 5) +  "\n"+ Array.get(lines, n + 6) +  "\n"+ Array.get(lines, n + 7) +  "\n"
+                    + Array.get(lines, n + 8));
         }
         if(day == 4) {
             int n = 20;
-            jLabelLunch.append( (String) Array.get(lines, n)  +  "\n" + (String)Array.get(lines, n + 1)  + "\n" + (String)Array.get(lines, n + 2) +
-                    "\n" + (String)Array.get(lines, n + 3)   );
-            jLabelDinner.append( (String)Array.get(lines, n + 5) +  "\n"+ (String)Array.get(lines, n + 6)  +  "\n"+ (String)Array.get(lines, n + 7) +  "\n"
-                    + (String)Array.get(lines, n + 8)  );
+            jLabelLunch.append( Array.get(lines, n) +  "\n" + Array.get(lines, n + 1) + "\n" + Array.get(lines, n + 2) +
+                    "\n" + Array.get(lines, n + 3));
+            jLabelDinner.append( Array.get(lines, n + 5) +  "\n"+ Array.get(lines, n + 6) +  "\n"+ Array.get(lines, n + 7) +  "\n"
+                    + Array.get(lines, n + 8));
         }
         if(day == 5) {
             int n = 30;
-            jLabelLunch.append( (String) Array.get(lines, n)  +  "\n" + (String)Array.get(lines, n + 1)  + "\n" + (String)Array.get(lines, n + 2) +
-                    "\n" + (String)Array.get(lines, n + 3)   );
-            jLabelDinner.append( (String)Array.get(lines, n + 5) +  "\n"+ (String)Array.get(lines, n + 6)  +  "\n"+ (String)Array.get(lines, n + 7) +  "\n"
-                    + (String)Array.get(lines, n + 8)  );
+            jLabelLunch.append( Array.get(lines, n) +  "\n" + Array.get(lines, n + 1) + "\n" + Array.get(lines, n + 2) +
+                    "\n" + Array.get(lines, n + 3));
+            jLabelDinner.append( Array.get(lines, n + 5) +  "\n"+ Array.get(lines, n + 6) +  "\n"+ Array.get(lines, n + 7) +  "\n"
+                    + Array.get(lines, n + 8));
         }
         if(day == 6) {
             int n = 40;
-            jLabelLunch.append( (String) Array.get(lines, n)  +  "\n" + (String)Array.get(lines, n + 1)  + "\n" + (String)Array.get(lines, n + 2) +
-                    "\n" + (String)Array.get(lines, n + 3)   );
-            jLabelDinner.append( (String)Array.get(lines, n + 5) +  "\n"+ (String)Array.get(lines, n + 6)  +  "\n"+ (String)Array.get(lines, n + 7) +  "\n"
-                    + (String)Array.get(lines, n + 8)  );
+            jLabelLunch.append( Array.get(lines, n) +  "\n" + Array.get(lines, n + 1) + "\n" + Array.get(lines, n + 2) +
+                    "\n" + Array.get(lines, n + 3));
+            jLabelDinner.append( Array.get(lines, n + 5) +  "\n"+ Array.get(lines, n + 6) +  "\n"+ Array.get(lines, n + 7) +  "\n"
+                    + Array.get(lines, n + 8));
         }
         if(day == 7) {
             int n = 50;
-            jLabelLunch.append( (String) Array.get(lines, n)  +  "\n" + (String)Array.get(lines, n + 1)  + "\n" + (String)Array.get(lines, n + 2) +
-                    "\n" + (String)Array.get(lines, n + 3)   );
-            jLabelDinner.append( (String)Array.get(lines, n + 5) +  "\n"+ (String)Array.get(lines, n + 6)  +  "\n"+ (String)Array.get(lines, n + 7) +  "\n"
-                    + (String)Array.get(lines, n + 8)  );
+            jLabelLunch.append( Array.get(lines, n) +  "\n" + Array.get(lines, n + 1) + "\n" + Array.get(lines, n + 2) +
+                    "\n" + Array.get(lines, n + 3));
+            jLabelDinner.append( Array.get(lines, n + 5) +  "\n"+ Array.get(lines, n + 6) +  "\n"+ Array.get(lines, n + 7) +  "\n"
+                    + Array.get(lines, n + 8));
         }
 
         // Layout
@@ -395,7 +372,7 @@ public class MainMenu extends javax.swing.JFrame {
                                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", Font.BOLD, 14)); // NOI18N
         jLabel4.setText("Bilkent Menu for Today");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -684,7 +661,7 @@ public class MainMenu extends javax.swing.JFrame {
      */
     public static String textReader() throws FileNotFoundException
     {
-        File file = new File( "filename.txt" );
+        File file = new File("lib/logs/filename.txt");
         Scanner scan = new Scanner( file );
         String name = scan.next();
         scan.close();
@@ -702,7 +679,7 @@ public class MainMenu extends javax.swing.JFrame {
         long calories = 0;
         for ( int count = 0; count < foodSelect.getFood().size(); count++){
             Food food = foodSelect.getFood().get( count );
-            calories += ( long ) ( ( double ) food.getAmount() / 100 ) * ( (double) food.getCaloriePerPortion() );
+            calories += ( long ) ( food.getAmount() / 100 ) * ( (double) food.getCaloriePerPortion() );
         }
         return calories;
     }
@@ -710,7 +687,7 @@ public class MainMenu extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -723,25 +700,18 @@ public class MainMenu extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | UnsupportedLookAndFeelException | IllegalAccessException |
+                 InstantiationException ex) {
             java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new MainMenu().setVisible(true);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        java.awt.EventQueue.invokeLater(() -> {
+            try {
+                new MainMenu().setVisible(true);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         });
     }
